@@ -1,379 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Hotel Opening - A1 Speaking Task</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; background-color: #FFF7ED; } /* bg-orange-50 */
-        
-        /* 3D Flip Card CSS */
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-        .flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #FFEDD5; }
-        ::-webkit-scrollbar-thumb { background: #F97316; border-radius: 4px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Horizon: Eco-Resort Launch Summit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
-<body class="text-slate-800 min-h-screen flex flex-col p-4 md:p-8">
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans pb-12">
 
-    <!-- Header & Modal Trigger -->
-    <header class="max-w-6xl mx-auto w-full flex justify-between items-center mb-6">
-        <div class="flex items-center gap-3 text-orange-600">
-            <i data-lucide="building-2" class="w-8 h-8 md:w-10 md:h-10"></i>
-            <h1 class="text-2xl md:text-3xl font-bold">The Grand Hotel</h1>
+  <!-- TOP HEADER -->
+  <header class="border-b border-emerald-500/30 bg-slate-950/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 bg-emerald-500/20 rounded-xl border border-emerald-500/40 text-emerald-400">
+          <i data-lucide="palmtree" class="w-7 h-7"></i>
         </div>
-        <button onclick="toggleModal('objectivesModal')" class="flex items-center gap-2 bg-orange-200 hover:bg-orange-300 text-orange-800 px-4 py-2 rounded-full font-medium transition-colors">
-            <i data-lucide="info" class="w-5 h-5"></i>
-            <span class="hidden md:inline">Teacher Objectives</span>
-        </button>
-    </header>
-
-    <!-- Main Task Card -->
-    <main class="max-w-6xl mx-auto w-full flex-grow">
-        <section class="bg-gradient-to-br from-orange-500 to-rose-500 text-white rounded-2xl shadow-xl p-6 md:p-8 mb-10">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-3">
-                <i data-lucide="map" class="w-8 h-8"></i>
-                Mission: Open The Hotel!
-            </h2>
-            <p class="text-lg md:text-xl mb-6 bg-white/20 p-4 rounded-xl border border-white/30 font-medium">
-                You are a team. You have a new hotel, but you have no plan! You must talk together to plan the jobs, the prices, and the schedules.
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                <div class="bg-black/20 p-4 rounded-lg">
-                    <div class="flex items-center gap-2 font-bold text-xl mb-2">
-                        <i data-lucide="eye-off" class="w-6 h-6 text-orange-200"></i> Step 1
-                    </div>
-                    <p>Click your card. Read your secret goal. Do not show your card.</p>
-                </div>
-                <div class="bg-black/20 p-4 rounded-lg">
-                    <div class="flex items-center gap-2 font-bold text-xl mb-2">
-                        <i data-lucide="messages-square" class="w-6 h-6 text-orange-200"></i> Step 2
-                    </div>
-                    <p>Talk to your team. Ask questions. Answer questions.</p>
-                </div>
-                <div class="bg-black/20 p-4 rounded-lg">
-                    <div class="flex items-center gap-2 font-bold text-xl mb-2">
-                        <i data-lucide="pencil" class="w-6 h-6 text-orange-200"></i> Step 3
-                    </div>
-                    <p>Agree on the details. Write the plan in the notebook below.</p>
-                </div>
-            </div>
-            
-            <div class="bg-white text-orange-900 p-4 rounded-xl shadow-inner font-bold text-lg flex items-center gap-3">
-                <i data-lucide="check-circle" class="w-6 h-6 text-green-600"></i>
-                Final Deliverable: Write 3 Jobs, 3 Prices, and 3 Schedules in the Notebook.
-            </div>
-        </section>
-
-        <!-- 3D Flip Role Cards Grid -->
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            
-            <!-- Role 1: Manager (Class 5) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="briefcase" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">The Manager</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 5 • You plan the jobs.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You need to know everyone's job. You need people to work at the front desk and clean.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Ask: "What do you do?"</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Ask: "Where do you work?"</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Find out 2 jobs for the notebook.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Role 2: Receptionist (Class 5) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="phone" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">The Receptionist</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 5 • You talk to guests.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You answer questions about your job. You want a desk job.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "I am a receptionist."</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "I work at the front desk."</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Refuse to do any cleaning jobs.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Role 3: Guide (Class 8) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="users" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">The Guide</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 8 • You describe everyone.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You listen to the team. You must describe what other people do.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "He is a..." / "She is a..."</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "He works in..." / "She works in..."</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Describe 2 people's jobs clearly for the notebook.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Role 4: Accountant (Class 10) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="calculator" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">The Accountant</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 10 • You control the money.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You need to set prices for a hotel room and breakfast. You want cheap options.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Ask: "How much is this?"</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "That is 50 dollars."</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Do not agree to a price over 100 dollars.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Role 5: Head Cleaner (Class 25) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="sparkles" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">Head Cleaner</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 25 • You plan routines.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You want a clean hotel, but you are very tired. You want other people to clean.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Ask: "How often do you clean?"</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "I never clean the windows."</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Tell the team you "sometimes" work, but make someone else work "always".</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Role 6: Breakfast Chef (Class 25) -->
-            <div class="perspective-1000 w-full h-80 cursor-pointer group" onclick="this.classList.toggle('flipped')">
-                <div class="flip-card-inner">
-                    <!-- Front -->
-                    <div class="absolute w-full h-full backface-hidden bg-white border-2 border-orange-200 rounded-2xl shadow-md p-6 flex flex-col justify-center items-center text-center hover:border-orange-400 transition-colors">
-                        <div class="bg-orange-100 p-4 rounded-full mb-4">
-                            <i data-lucide="utensils" class="w-10 h-10 text-orange-600"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-800">The Chef</h3>
-                        <p class="text-slate-500 mt-2 font-medium">Class 25 • You cook food.</p>
-                        <button class="mt-6 bg-orange-500 text-white px-5 py-2 rounded-full font-medium group-hover:bg-orange-600 transition-colors flex items-center gap-2">
-                            <i data-lucide="rotate-cw" class="w-4 h-4"></i> Click to Flip
-                        </button>
-                    </div>
-                    <!-- Back -->
-                    <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-orange-50 border-2 border-orange-400 rounded-2xl shadow-lg p-5 flex flex-col justify-start overflow-y-auto">
-                        <h3 class="text-lg font-bold text-orange-800 mb-2 border-b-2 border-orange-200 pb-2">Top Secret</h3>
-                        <p class="text-sm text-slate-700 mb-4">You love your job, but you hate getting up early. You only cook breakfast.</p>
-                        <ul class="text-sm space-y-3 font-medium text-slate-800">
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "I usually cook eggs."</li>
-                            <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-5 h-5 text-orange-500 flex-shrink-0"></i> Say: "I always work in the morning."</li>
-                            <li class="flex items-start gap-2 text-rose-600"><i data-lucide="alert-circle" class="w-5 h-5 flex-shrink-0"></i> Goal: Refuse to cook dinner. Say: "I never work at night."</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-
-        <!-- Lower Section: Scratchpad & Toolkit -->
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
-            
-            <!-- Language Toolkit -->
-            <div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-md border-2 border-orange-100">
-                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <i data-lucide="book-open" class="w-6 h-6 text-orange-500"></i> Help Toolkit
-                </h3>
-                <p class="text-sm text-slate-500 mb-4">Click a phrase to copy it.</p>
-                
-                <div class="space-y-2">
-                    <div onclick="copyText('What do you do?')" class="flex items-center justify-between p-3 bg-orange-50 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors border border-orange-200">
-                        <span class="text-slate-800 font-medium text-sm">What do you do?</span>
-                        <i data-lucide="copy" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                    <div onclick="copyText('He is a receptionist.')" class="flex items-center justify-between p-3 bg-orange-50 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors border border-orange-200">
-                        <span class="text-slate-800 font-medium text-sm">He is a receptionist.</span>
-                        <i data-lucide="copy" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                    <div onclick="copyText('How much is this room?')" class="flex items-center justify-between p-3 bg-orange-50 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors border border-orange-200">
-                        <span class="text-slate-800 font-medium text-sm">How much is this room?</span>
-                        <i data-lucide="copy" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                    <div onclick="copyText('How often do you work?')" class="flex items-center justify-between p-3 bg-orange-50 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors border border-orange-200">
-                        <span class="text-slate-800 font-medium text-sm">How often do you work?</span>
-                        <i data-lucide="copy" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                    <div onclick="copyText('I always cook in the morning.')" class="flex items-center justify-between p-3 bg-orange-50 rounded-lg hover:bg-orange-100 cursor-pointer transition-colors border border-orange-200">
-                        <span class="text-slate-800 font-medium text-sm">I always cook in the morning.</span>
-                        <i data-lucide="copy" class="w-5 h-5 text-orange-500"></i>
-                    </div>
-                </div>
-                <!-- Copy notification -->
-                <div id="copyToast" class="hidden mt-4 text-center text-sm font-bold text-green-600 bg-green-100 p-2 rounded">Copied!</div>
-            </div>
-
-            <!-- Group Notebook / Scratchpad -->
-            <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-md border-2 border-orange-100 flex flex-col">
-                <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-                    <i data-lucide="clipboard-edit" class="w-6 h-6 text-orange-500"></i> The Hotel Plan Notebook
-                </h3>
-                <p class="text-sm text-slate-500 mb-4">Write your team's final decisions here.</p>
-                <textarea class="w-full flex-grow min-h-[250px] p-4 bg-amber-50 border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:outline-none resize-none font-medium text-slate-700" placeholder="1. Jobs:
-- ...
-- ...
-- ...
-
-2. Prices:
-- Room: $...
-- Breakfast: $...
-- ...
-
-3. Schedules:
-- (Who) always cleans...
-- (Who) never works..."></textarea>
-            </div>
-            
-        </section>
-    </main>
-
-    <!-- Objectives Dossier Modal -->
-    <div id="objectivesModal" class="hidden fixed inset-0 bg-black/60 z-50 flex justify-center items-center p-4 backdrop-blur-sm" onclick="closeModalOnBackdrop(event, 'objectivesModal')">
-        <div class="bg-white max-w-2xl w-full rounded-2xl shadow-2xl overflow-hidden flex flex-col" onclick="event.stopPropagation()">
-            <div class="bg-slate-800 p-5 flex justify-between items-center text-white">
-                <h2 class="text-xl font-bold flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-6 h-6"></i> Pedagogical Objectives
-                </h2>
-                <i data-lucide="x" class="w-6 h-6 cursor-pointer hover:text-rose-400 transition-colors" onclick="toggleModal('objectivesModal')"></i>
-            </div>
-            <div class="p-6 overflow-y-auto max-h-[70vh]">
-                <h3 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">Target Profile</h3>
-                <p class="mb-4 text-slate-600"><span class="font-bold">CEFR Level:</span> A1<br><span class="font-bold">Classes:</span> 5, 8, 10, 25 (6 Students)</p>
-                
-                <h3 class="text-lg font-bold text-slate-800 mb-3 border-b pb-2">Extracted Syllabus Objectives</h3>
-                <ul class="space-y-4 text-slate-700">
-                    <li class="bg-slate-50 p-3 rounded border border-slate-200">
-                        <span class="font-bold text-orange-600">Class 5 (Manager & Receptionist):</span> "Ask and answer questions about different types of jobs"
-                    </li>
-                    <li class="bg-slate-50 p-3 rounded border border-slate-200">
-                        <span class="font-bold text-orange-600">Class 8 (The Guide):</span> "Watch in context how people describe their jobs (Video)" <em>(Adapted for communicative speaking: describing 3rd person jobs)</em>
-                    </li>
-                    <li class="bg-slate-50 p-3 rounded border border-slate-200">
-                        <span class="font-bold text-orange-600">Class 10 (The Accountant):</span> "Ask for and give prices"
-                    </li>
-                    <li class="bg-slate-50 p-3 rounded border border-slate-200">
-                        <span class="font-bold text-orange-600">Class 25 (Cleaner & Chef):</span> "Validate previous knowledge about how to describe the frequency of certain activities (Grammar Plus)"
-                    </li>
-                </ul>
-            </div>
-            <div class="p-4 bg-slate-100 text-right">
-                <button class="bg-slate-800 text-white px-5 py-2 rounded font-bold hover:bg-slate-700 transition-colors" onclick="toggleModal('objectivesModal')">Close</button>
-            </div>
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-emerald-400">A1 Speaking Production Task</span>
+          <h1 class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+            Project Horizon: Eco-Resort Launch Summit
+          </h1>
         </div>
+      </div>
+      <button onclick="openModal()" class="flex items-center gap-2 bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/50 px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+        <i data-lucide="book-open" class="w-4 h-4"></i>
+        <span>Syllabus Dossier</span>
+      </button>
     </div>
+  </header>
 
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+  <main class="max-w-7xl mx-auto px-4 mt-8 space-y-8">
 
-        // Modal Logic
-        function toggleModal(modalId) {
-            const modal = document.getElementById(modalId);
-            modal.classList.toggle('hidden');
-        }
+    <!-- STANDALONE MAIN TASK CARD -->
+    <section class="bg-gradient-to-br from-slate-800 via-slate-800/90 to-emerald-950/60 border border-emerald-500/30 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider rounded-full border border-emerald-500/30 flex items-center gap-1.5">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i> Collaborative Mission
+        </span>
+        <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-wider rounded-full border border-cyan-500/30 flex items-center gap-1.5">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i> 4 Roles
+        </span>
+      </div>
 
-        function closeModalOnBackdrop(event, modalId) {
-            if (event.target.id === modalId) {
-                toggleModal(modalId);
-            }
-        }
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+        Main Task: Build the Eco-Resort Launch Plan
+      </h2>
+      <p class="text-slate-300 leading-relaxed text-sm sm:text-base max-w-4xl mb-6">
+        You are the executive team of <strong class="text-emerald-400">Horizon Eco-Resort</strong>. Today, you must hold a planning meeting to decide where to build the resort, arrange the grand opening party, and set future green goals for the next year.
+      </p>
 
-        // Copy to Clipboard Logic for Scaffolding Toolkit
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const toast = document.getElementById('copyToast');
-                toast.classList.remove('hidden');
-                setTimeout(() => {
-                    toast.classList.add('hidden');
-                }, 2000);
-            }).catch(err => {
-                console.error('Could not copy text: ', err);
-            });
-        }
-    </script>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <!-- Deliverable -->
+        <div class="bg-slate-900/80 border border-emerald-500/20 rounded-xl p-4 flex gap-4 items-start">
+          <div class="p-2.5 bg-teal-500/20 text-teal-400 rounded-lg shrink-0">
+            <i data-lucide="file-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-teal-300 text-sm uppercase tracking-wider mb-1">Final Group Deliverable</h3>
+            <p class="text-slate-300 text-xs sm:text-sm">
+              Complete the <strong class="text-white">Resort Launch Agreement</strong> in the Scratchpad with: 
+              1 chosen island, 2 gala event requests, and 3 future objectives for next year.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mission Stages -->
+        <div class="bg-slate-900/80 border border-cyan-500/20 rounded-xl p-4 flex gap-4 items-start">
+          <div class="p-2.5 bg-cyan-500/20 text-cyan-400 rounded-lg shrink-0">
+            <i data-lucide="map-pin" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-cyan-300 text-sm uppercase tracking-wider mb-1">4 Mission Stages</h3>
+            <ol class="text-xs sm:text-sm text-slate-300 list-decimal list-inside space-y-1">
+              <li><strong>Stage 1:</strong> Compare islands & choose location (Alex leads).</li>
+              <li><strong>Stage 2:</strong> Request & arrange the Gala Event (Morgan leads).</li>
+              <li><strong>Stage 3:</strong> Present future objectives & goals (Taylor & Jordan lead).</li>
+              <li><strong>Stage 4:</strong> Sign consensus in the scratchpad.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 3D FLIP ROLE CARDS GRID -->
+    <section>
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="users-2" class="w-5 h-5 text-emerald-400"></i> Role Cards (3D Interactive)
+          </h2>
+          <p class="text-xs text-slate-400">Click "Flip Role Card" to view secret data, constraints, and target language checklists.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- CARD 1: Alex (Class 62) -->
+        <div class="perspective-1000 h-[480px] group">
+          <div id="card-1" class="relative w-full h-full duration-700 transform-style-3d bg-slate-800 border border-slate-700 rounded-2xl shadow-xl">
+            
+            <!-- FRONT SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-emerald-500/30">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-semibold rounded-lg border border-emerald-500/30">
+                    Class 62 Focus
+                  </span>
+                  <i data-lucide="map" class="w-5 h-5 text-emerald-400"></i>
+                </div>
+                <div class="text-center my-4">
+                  <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full mx-auto flex items-center justify-center border border-emerald-500/40 mb-3">
+                    <i data-lucide="mountain" class="w-8 h-8"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Alex</h3>
+                  <p class="text-xs text-emerald-400 font-medium">Location Specialist</p>
+                </div>
+                <p class="text-xs text-slate-300 text-center leading-relaxed">
+                  You are the venue expert. You have data comparing two island locations for the eco-resort.
+                </p>
+              </div>
+              <button onclick="toggleFlip('card-1')" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tap / Click to Flip
+              </button>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 p-5 flex flex-col justify-between bg-slate-900 border border-emerald-500/50 rounded-2xl overflow-y-auto">
+              <div>
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                  <h4 class="text-sm font-bold text-emerald-400">Alex's Secret Data</h4>
+                  <button onclick="toggleFlip('card-1')" class="text-slate-400 hover:text-white cursor-pointer">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <div class="text-xs text-slate-300 space-y-2 mb-3">
+                  <p><strong>Island Alpha:</strong> Hotter ($32^\circ\text{C}$), larger, $150\text{ km}$ from airport. Has the highest mountain ($800\text{ m}$).</p>
+                  <p><strong>Island Beta:</strong> Cooler ($25^\circ\text{C}$), smaller, $30\text{ km}$ from airport. More peaceful than Alpha.</p>
+                </div>
+                <div class="bg-slate-800/80 rounded-lg p-2.5 mb-3 border border-emerald-500/20">
+                  <p class="text-[11px] font-bold text-emerald-300 uppercase tracking-wider mb-1">Target Checklist (Class 62)</p>
+                  <ul class="text-xs space-y-1 text-slate-300">
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-emerald-500"> Compare places ($taller, hotter$).</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-emerald-500"> Use superlatives ($the\ most\ peaceful$).</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-emerald-500"> Ask facts ($How\ high?, How\ far?$).</li>
+                  </ul>
+                </div>
+              </div>
+              <button onclick="toggleFlip('card-1')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg cursor-pointer">
+                Flip Back
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 2: Morgan (Class 67) -->
+        <div class="perspective-1000 h-[480px] group">
+          <div id="card-2" class="relative w-full h-full duration-700 transform-style-3d bg-slate-800 border border-slate-700 rounded-2xl shadow-xl">
+            
+            <!-- FRONT SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-cyan-500/30">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="px-2.5 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-semibold rounded-lg border border-cyan-500/30">
+                    Class 67 Focus
+                  </span>
+                  <i data-lucide="sparkles" class="w-5 h-5 text-cyan-400"></i>
+                </div>
+                <div class="text-center my-4">
+                  <div class="w-16 h-16 bg-cyan-500/20 text-cyan-400 rounded-full mx-auto flex items-center justify-center border border-cyan-500/40 mb-3">
+                    <i data-lucide="party-popper" class="w-8 h-8"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Morgan</h3>
+                  <p class="text-xs text-cyan-400 font-medium">Gala Coordinator</p>
+                </div>
+                <p class="text-xs text-slate-300 text-center leading-relaxed">
+                  You plan the Grand Opening Gala. You must make arrangements and polite requests to the team.
+                </p>
+              </div>
+              <button onclick="toggleFlip('card-2')" class="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tap / Click to Flip
+              </button>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 p-5 flex flex-col justify-between bg-slate-900 border border-cyan-500/50 rounded-2xl overflow-y-auto">
+              <div>
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                  <h4 class="text-sm font-bold text-cyan-400">Morgan's Secret Data</h4>
+                  <button onclick="toggleFlip('card-2')" class="text-slate-400 hover:text-white cursor-pointer">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <div class="text-xs text-slate-300 space-y-2 mb-3">
+                  <p><strong>Gala Requirements:</strong> You need organic food catering, live acoustic music, and a large outdoor stage.</p>
+                  <p><strong>Constraint:</strong> You must make polite requests to Alex, Taylor, and Jordan for help.</p>
+                </div>
+                <div class="bg-slate-800/80 rounded-lg p-2.5 mb-3 border border-cyan-500/20">
+                  <p class="text-[11px] font-bold text-cyan-300 uppercase tracking-wider mb-1">Target Checklist (Class 67)</p>
+                  <ul class="text-xs space-y-1 text-slate-300">
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-cyan-500"> Make polite requests ($Can\ you...?, Could\ we...?).</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-cyan-500"> Express needs ($I\ would\ like\ to\ request...).</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-cyan-500"> Arrange event details ($We\ are\ arranging...).</li>
+                  </ul>
+                </div>
+              </div>
+              <button onclick="toggleFlip('card-2')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg cursor-pointer">
+                Flip Back
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 3: Taylor (Class 69 - A) -->
+        <div class="perspective-1000 h-[480px] group">
+          <div id="card-3" class="relative w-full h-full duration-700 transform-style-3d bg-slate-800 border border-slate-700 rounded-2xl shadow-xl">
+            
+            <!-- FRONT SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-teal-500/30">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="px-2.5 py-1 bg-teal-500/20 text-teal-300 text-xs font-semibold rounded-lg border border-teal-500/30">
+                    Class 69 Focus
+                  </span>
+                  <i data-lucide="rocket" class="w-5 h-5 text-teal-400"></i>
+                </div>
+                <div class="text-center my-4">
+                  <div class="w-16 h-16 bg-teal-500/20 text-teal-400 rounded-full mx-auto flex items-center justify-center border border-teal-500/40 mb-3">
+                    <i data-lucide="target" class="w-8 h-8"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Taylor</h3>
+                  <p class="text-xs text-teal-400 font-medium">Future Innovation Lead</p>
+                </div>
+                <p class="text-xs text-slate-300 text-center leading-relaxed">
+                  You manage high-tech green features. You present future plans using <em>be going to</em> and Present Continuous.
+                </p>
+              </div>
+              <button onclick="toggleFlip('card-3')" class="w-full py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tap / Click to Flip
+              </button>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 p-5 flex flex-col justify-between bg-slate-900 border border-teal-500/50 rounded-2xl overflow-y-auto">
+              <div>
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                  <h4 class="text-sm font-bold text-teal-400">Taylor's Secret Data</h4>
+                  <button onclick="toggleFlip('card-3')" class="text-slate-400 hover:text-white cursor-pointer">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <div class="text-xs text-slate-300 space-y-2 mb-3">
+                  <p><strong>Future Goals:</strong> Next month, you are installing 500 solar panels. Next year, you are going to launch electric boats for guests.</p>
+                  <p><strong>Expectation:</strong> You expect 100% solar power by December.</p>
+                </div>
+                <div class="bg-slate-800/80 rounded-lg p-2.5 mb-3 border border-teal-500/20">
+                  <p class="text-[11px] font-bold text-teal-300 uppercase tracking-wider mb-1">Target Checklist (Class 69)</p>
+                  <ul class="text-xs space-y-1 text-slate-300">
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-teal-500"> Express goals with <em>be going to</em>.</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-teal-500"> State scheduled plans with Present Continuous.</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-teal-500"> Explain future expectations clearly.</li>
+                  </ul>
+                </div>
+              </div>
+              <button onclick="toggleFlip('card-3')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg cursor-pointer">
+                Flip Back
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CARD 4: Jordan (Class 69 - B) -->
+        <div class="perspective-1000 h-[480px] group">
+          <div id="card-4" class="relative w-full h-full duration-700 transform-style-3d bg-slate-800 border border-slate-700 rounded-2xl shadow-xl">
+            
+            <!-- FRONT SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden p-5 flex flex-col justify-between bg-gradient-to-b from-slate-800 to-slate-900 rounded-2xl border border-amber-500/30">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="px-2.5 py-1 bg-amber-500/20 text-amber-300 text-xs font-semibold rounded-lg border border-amber-500/30">
+                    Class 69 Focus
+                  </span>
+                  <i data-lucide="leaf" class="w-5 h-5 text-amber-400"></i>
+                </div>
+                <div class="text-center my-4">
+                  <div class="w-16 h-16 bg-amber-500/20 text-amber-400 rounded-full mx-auto flex items-center justify-center border border-amber-500/40 mb-3">
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Jordan</h3>
+                  <p class="text-xs text-amber-400 font-medium">Sustainability Director</p>
+                </div>
+                <p class="text-xs text-slate-300 text-center leading-relaxed">
+                  You manage eco-certifications and guest experiences. You explain future objectives to the team.
+                </p>
+              </div>
+              <button onclick="toggleFlip('card-4')" class="w-full py-2.5 bg-amber-600 hover:bg-amber-500 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer">
+                <i data-lucide="rotate-cw" class="w-4 h-4"></i> Tap / Click to Flip
+              </button>
+            </div>
+
+            <!-- BACK SIDE -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 p-5 flex flex-col justify-between bg-slate-900 border border-amber-500/50 rounded-2xl overflow-y-auto">
+              <div>
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+                  <h4 class="text-sm font-bold text-amber-400">Jordan's Secret Data</h4>
+                  <button onclick="toggleFlip('card-4')" class="text-slate-400 hover:text-white cursor-pointer">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                  </button>
+                </div>
+                <div class="text-xs text-slate-300 space-y-2 mb-3">
+                  <p><strong>Future Goals:</strong> You are opening an organic farm next summer. You are going to protect the local coral reef.</p>
+                  <p><strong>Expectation:</strong> You expect 5,000 eco-tourists during the first season.</p>
+                </div>
+                <div class="bg-slate-800/80 rounded-lg p-2.5 mb-3 border border-amber-500/20">
+                  <p class="text-[11px] font-bold text-amber-300 uppercase tracking-wider mb-1">Target Checklist (Class 69)</p>
+                  <ul class="text-xs space-y-1 text-slate-300">
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-amber-500"> Use <em>be going to</em> for future objectives.</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-amber-500"> Use Present Continuous for future dates.</li>
+                    <li class="flex items-center gap-1.5"><input type="checkbox" class="accent-amber-500"> Share future expectations with the team.</li>
+                  </ul>
+                </div>
+              </div>
+              <button onclick="toggleFlip('card-4')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-lg cursor-pointer">
+                Flip Back
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLICKABLE SCAFFOLDING TOOLKIT -->
+    <section class="bg-slate-800/60 border border-slate-700 rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="message-square" class="w-5 h-5 text-teal-400"></i> Speaking Scaffold Toolkit
+          </h2>
+          <p class="text-xs text-slate-400">Click any sentence stem to copy it and insert it into your discussion notes!</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- Category 1: Class 62 -->
+        <div class="bg-slate-900/90 rounded-xl p-4 border border-emerald-500/30">
+          <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+            <i data-lucide="scale" class="w-4 h-4"></i> Class 62: Comparing Places
+          </h3>
+          <div class="space-y-2">
+            <button onclick="copyPhrase('Island Alpha is hotter and larger than Island Beta.')" class="w-full text-left p-2 bg-slate-800 hover:bg-emerald-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-emerald-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Island Alpha is hotter than..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('Island Beta is the most peaceful location.')" class="w-full text-left p-2 bg-slate-800 hover:bg-emerald-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-emerald-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Island Beta is the most peaceful..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('How high is the mountain on Island Alpha?')" class="w-full text-left p-2 bg-slate-800 hover:bg-emerald-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-emerald-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"How high / far is...?"</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 2: Class 67 -->
+        <div class="bg-slate-900/90 rounded-xl p-4 border border-cyan-500/30">
+          <h3 class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+            <i data-lucide="gift" class="w-4 h-4"></i> Class 67: Event Requests
+          </h3>
+          <div class="space-y-2">
+            <button onclick="copyPhrase('Can you please arrange live music for the gala?')" class="w-full text-left p-2 bg-slate-800 hover:bg-cyan-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Can you please arrange...?"</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('I would like to request organic catering for guests.')" class="w-full text-left p-2 bg-slate-800 hover:bg-cyan-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"I would like to request..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('Could we prepare the outdoor stage on Friday?')" class="w-full text-left p-2 bg-slate-800 hover:bg-cyan-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-cyan-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Could we prepare...?"</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 3: Class 69 -->
+        <div class="bg-slate-900/90 rounded-xl p-4 border border-teal-500/30">
+          <h3 class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+            <i data-lucide="trending-up" class="w-4 h-4"></i> Class 69: Future Objectives
+          </h3>
+          <div class="space-y-2">
+            <button onclick="copyPhrase('We are going to build solar buildings next year.')" class="w-full text-left p-2 bg-slate-800 hover:bg-teal-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-teal-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"We are going to build..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('Next month, we are opening the organic farm.')" class="w-full text-left p-2 bg-slate-800 hover:bg-teal-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-teal-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Next month, we are hosting/opening..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+            <button onclick="copyPhrase('Our main expectation is to protect the ocean.')" class="w-full text-left p-2 bg-slate-800 hover:bg-teal-950/60 text-slate-200 text-xs rounded-lg border border-slate-700 hover:border-teal-500/50 transition-all flex items-center justify-between cursor-pointer">
+              <span>"Our main expectation is..."</span>
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-400"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GROUP SCRATCHPAD -->
+    <section class="bg-slate-800/80 border border-emerald-500/30 rounded-2xl p-6 shadow-xl">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+        <div>
+          <h2 class="text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="edit-3" class="w-5 h-5 text-emerald-400"></i> Group Scratchpad & Final Consensus
+          </h2>
+          <p class="text-xs text-slate-400">Record your team's decisions here during your speak production task.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="copyScratchpad()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-slate-200 text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Plan
+          </button>
+          <button onclick="downloadScratchpad()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-lg flex items-center gap-1.5 transition-all cursor-pointer">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> Export Plan
+          </button>
+        </div>
+      </div>
+
+      <textarea id="scratchpad" rows="7" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl p-4 text-slate-200 text-sm focus:outline-none focus:border-emerald-500 transition-all font-mono leading-relaxed" placeholder="ECO-RESORT LAUNCH AGREEMENT
+----------------------------------
+1. SELECTED LOCATION (Alex's Report):
+We chose Island ______ because it is ______ than Island ______.
+
+2. GALA EVENT REQUESTS (Morgan's Requests):
+- We would like to request: ______
+- Can you please arrange: ______
+
+3. FUTURE OBJECTIVES & ROADMAP (Taylor & Jordan's Goals):
+- Next month, we are: ______
+- Next year, we are going to: ______
+- Our future expectation is: ______"></textarea>
+    </section>
+
+  </main>
+
+  <!-- OBJECTIVES DOSSIER MODAL -->
+  <div id="modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4" onclick="closeModalOnBackdrop(event)">
+    <div class="bg-slate-900 border border-emerald-500/40 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+        <div class="flex items-center gap-2">
+          <i data-lucide="book-open" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="text-lg font-bold text-white">Extracted Syllabus Objectives</h3>
+        </div>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-white p-1 rounded-lg cursor-pointer">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-sm text-slate-300">
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-emerald-500/20">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-emerald-400">Class 62 Objectives</span>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">Video Class</span>
+          </div>
+          <p class="text-xs text-slate-300"><strong>Communicative Goal:</strong> "Watch a game show where people describe and compare places (Video)"</p>
+          <p class="text-xs text-slate-400 mt-1"><strong>Grammar Focus:</strong> Comparing places and facts (comparatives, superlatives, how + adjectives).</p>
+        </div>
+
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-cyan-500/20">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-cyan-400">Class 67 Objectives</span>
+            <span class="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded">Video Class</span>
+          </div>
+          <p class="text-xs text-slate-300"><strong>Communicative Goal:</strong> "Watch in context how to make requests for a special event (Video)"</p>
+          <p class="text-xs text-slate-400 mt-1"><strong>Grammar Focus:</strong> Making arrangements and requests (can, could, would like to).</p>
+        </div>
+
+        <div class="bg-slate-800/80 p-4 rounded-xl border border-teal-500/20">
+          <div class="flex items-center justify-between mb-1">
+            <span class="font-bold text-teal-400">Class 69 Objectives</span>
+            <span class="text-xs bg-teal-500/20 text-teal-300 px-2 py-0.5 rounded">Grammar Focus</span>
+          </div>
+          <p class="text-xs text-slate-300"><strong>Communicative Goal:</strong> "Explain my objectives and expectations for the future"</p>
+          <p class="text-xs text-slate-400 mt-1"><strong>Grammar Focus:</strong> Future with "be going to" and Present Continuous for future plans.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-800 text-right">
+        <button onclick="closeModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs rounded-xl cursor-pointer">
+          Close Dossier
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-emerald-600 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none z-50">
+    <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+    <span id="toast-msg" class="text-xs font-bold">Phrase copied to clipboard!</span>
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+    });
+
+    // 3D Flip Card Toggle
+    function toggleFlip(cardId) {
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.classList.toggle('rotate-y-180');
+      }
+    }
+
+    // Modal Control
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    function closeModalOnBackdrop(event) {
+      if (event.target.id === 'modal') {
+        closeModal();
+      }
+    }
+
+    // Copy Phrase Scaffolding
+    function copyPhrase(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast("Phrase copied & inserted into scratchpad!");
+        appendPhraseToScratchpad(text);
+      });
+    }
+
+    function appendPhraseToScratchpad(text) {
+      const pad = document.getElementById('scratchpad');
+      if (pad) {
+        pad.value += "\n- " + text;
+      }
+    }
+
+    // Copy Scratchpad Text
+    function copyScratchpad() {
+      const pad = document.getElementById('scratchpad');
+      if (pad) {
+        navigator.clipboard.writeText(pad.value).then(() => {
+          showToast("Scratchpad copied to clipboard!");
+        });
+      }
+    }
+
+    // Export Scratchpad File
+    function downloadScratchpad() {
+      const pad = document.getElementById('scratchpad');
+      if (!pad) return;
+      const element = document.createElement("a");
+      const file = new Blob([pad.value], {type: 'text/plain'});
+      element.href = URL.createObjectURL(file);
+      element.download = "EcoResort_Launch_Agreement.txt";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      showToast("Consensus plan downloaded!");
+    }
+
+    // Toast Notification Handler
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toast-msg');
+      if (toast && msg) {
+        msg.textContent = message;
+        toast.classList.remove('translate-y-20', 'opacity-0');
+        setTimeout(() => {
+          toast.classList.add('translate-y-20', 'opacity-0');
+        }, 2500);
+      }
+    }
+  </script>
 </body>
 </html>
